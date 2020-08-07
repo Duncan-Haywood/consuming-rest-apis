@@ -4,8 +4,14 @@ import './App.css';
 import axios from 'axios';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    }
+  }
   componentDidMount(){
-    const apiUrl = 'https://your-api.com/';
+    const apiUrl = 'https://api.qary.me/bot/?format=api';
     axios({ method: 'get', url: `${apiUrl}` }).then(response => {
     this.setState({
       posts: response.data
@@ -19,6 +25,13 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Does this work?
+          </p>
+
+          <p>
+            Well, here are some Qary.API get calls, maybe?
+          </p>
+          <p>
+            {this.posts}
           </p>
           <a
             className="App-link"
