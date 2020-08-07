@@ -11,7 +11,6 @@ class App extends React.Component {
     }
   }
   componentDidMount(){
-     throw new Error('componentDidMount is involved!');
     const apiUrl = 'https://api.qary.me/bot/?format=api';
     axios({ method: 'get', url: `${apiUrl}` }).then(response => {
     
@@ -19,6 +18,7 @@ class App extends React.Component {
       posts: 'ComponentsDidMount and posts are set and displayed' 
       // replace with: response.data
     })
+    throw new Error('componentDidMount is involved and runs all the way through!');
   });
   }
   render(){
