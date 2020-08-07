@@ -4,6 +4,14 @@ import './App.css';
 import axios from 'axios';
 
 class App extends React.Component {
+  componentDidMount(){
+    const apiUrl = 'https://your-api.com/';
+    axios({ method: 'get', url: `${apiUrl}` }).then(response => {
+    this.setState({
+      posts: response.data
+    })
+  });
+  }
   render(){
     return (
       <div className="App">
